@@ -1,279 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiking & Trekking Club | UET Peshawar</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiking & Trekking Club | UET Peshawar</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Playfair+Display&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <style>
-        :root {
-            --green-deep: #1b4332;
-            --green-darker: #081c15;
-            --gold: #f4bf8a;
-            --light: #fdfcfb;
-        }
+<style>
+:root{
+--green:#1b4332;
+--dark:#081c15;
+--gold:#f4bf8a;
+}
 
-        body { font-family: 'Poppins', sans-serif; background: var(--light); color: #333; overflow-x: hidden; scroll-behavior: smooth; }
-        
-        /* Typography */
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
-        .serif { font-family: 'Playfair Display', serif; font-style: italic; text-transform: none; letter-spacing: 0; }
+body{font-family:Poppins,sans-serif;scroll-behavior:smooth}
 
-        /* Hidden Navbar until Scroll */
-        .navbar {
-            background: rgba(8, 28, 21, 0.95);
-            backdrop-filter: blur(10px);
-            transition: all 0.5s ease;
-            transform: translateY(-100%);
-            padding: 15px 0;
-        }
-        .navbar.scrolled { transform: translateY(0); }
-        .navbar-brand { font-weight: 800; color: var(--gold) !important; font-size: 0.9rem; letter-spacing: 1px; }
+/* NAVBAR */
+.navbar{background:rgba(0,0,0,0.8);transform:translateY(-100%);transition:.4s}
+.navbar.scrolled{transform:translateY(0)}
+.nav-link.active{color:var(--gold)!important}
 
-        /* Cinematic Hero */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            position: relative;
-            background: #000;
-        }
-        .hero-overlay {
-            position: absolute; top:0; left:0; width:100%; height:100%;
-            background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
-            z-index: 1;
-        }
-        .hero-content { z-index: 2; max-width: 900px; padding: 0 20px; }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 20px; }
-        .hero p { font-size: 1rem; letter-spacing: 6px; color: var(--gold); margin-bottom: 10px; font-weight: 600; }
-        .hero-tagline { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #fff; opacity: 0.8; }
+/* HERO */
+.hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;position:relative}
+.hero-bg{position:absolute;width:100%;height:100%;background-size:cover;animation:slide 20s infinite,zoom 20s infinite}
+.hero-overlay{position:absolute;width:100%;height:100%;background:rgba(0,0,0,.7)}
 
-        .hero-bg {
-            position: absolute; top:0; left:0; width:100%; height:100%;
-            background-size: cover; background-position: center;
-            animation: slideBg 20s infinite;
-            filter: brightness(0.7);
-        }
-        @keyframes slideBg {
-            0%, 100% { background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/d0/91/51/mesmerizing-view-of-fairy.jpg?w=800&h=-1&s=1'); }
-            33% { background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470'); }
-            66% { background-image: url('https://images.unsplash.com/photo-1472396961693-142e6e269027'); }
-        }
+@keyframes zoom{50%{transform:scale(1.1)}}
+@keyframes slide{
+0%,100%{background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470')}
+33%{background-image:url('https://images.unsplash.com/photo-1472396961693-142e6e269027')}
+66%{background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')}
+}
 
-        /* Legacy Section */
-        .section-padding { padding: 100px 0; }
-        .history-highlight { border-left: 3px solid var(--gold); padding-left: 25px; margin: 30px 0; font-size: 1.2rem; }
+.hero-content{z-index:2}
+.btn-gold{background:var(--gold);padding:12px 35px;font-weight:700;border:none}
+.btn-gold:hover{background:#fff}
 
-        /* Cabinet & Council Cards */
-        .section-title { margin-bottom: 60px; color: var(--green-deep); text-align: center; position: relative; }
-        .section-title::after { content: ''; width: 50px; height: 3px; background: var(--gold); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
+/* SECTIONS */
+.section{padding:100px 0}
+.title{text-align:center;margin-bottom:50px;font-weight:800}
 
-        .cabinet-card {
-            background: #fff; border: 1px solid #eee; padding: 30px; border-radius: 0;
-            transition: 0.4s; text-align: center; height: 100%;
-        }
-        .cabinet-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .cabinet-img { width: 120px; height: 120px; object-fit: cover; border: 3px solid var(--gold); padding: 5px; margin-bottom: 20px; }
+.card-custom{
+    background:#fff;
+    padding:30px;
+    text-align:center;
+    transition:0.4s;
+    border-radius:10px;
+    border:1px solid #eee;
+}
+.card-custom:hover{
+    transform:translateY(-12px);
+    box-shadow:0 25px 50px rgba(0,0,0,0.08);
+    border-color:var(--gold);
+}
 
-        /* Join Section */
-        .join-box {
-            background: linear-gradient(rgba(27,67,50,0.9), rgba(27,67,50,0.9)), url('https://images.unsplash.com/photo-1472396961693-142e6e269027') center/cover;
-            padding: 80px 40px; text-align: center; color: white; margin-top: 50px;
-        }
+img{max-width:100%}
 
-        .btn-gold { 
-            background: var(--gold); color: var(--green-deep); 
-            padding: 15px 45px; font-weight: 700; border-radius: 0; 
-            letter-spacing: 2px; transition: 0.3s; border: none;
-        }
-        .btn-gold:hover { background: #fff; transform: translateY(-3px); }
+/* GALLERY */
+.gallery img{border-radius:10px;transition:.4s}
+.gallery img:hover{transform:scale(1.05)}
 
-        /* Footer */
-        footer { background: var(--green-darker); color: #fff; padding: 80px 0 30px 0; }
-        .footer-logo { font-size: 1.5rem; color: var(--gold); font-weight: 800; margin-bottom: 20px; display: block; }
-        .footer-link { color: rgba(255,255,255,0.6); text-decoration: none; transition: 0.3s; display: block; margin-bottom: 10px; }
-        .footer-link:hover { color: var(--gold); padding-left: 5px; }
-    </style>
+/* QUOTES */
+.quote{font-style:italic;text-align:center;margin-top:20px}
+
+/* STATS */
+.stat{text-align:center}
+.stat h2{font-weight:800;color:var(--green)}
+
+/* FOOTER */
+footer{background:var(--dark);color:#fff;padding:60px 0}
+.footer-link{color:#aaa;text-decoration:none;display:block;margin-bottom:8px}
+.footer-link:hover{color:var(--gold)}
+
+.social a{
+color:#fff;
+margin-right:15px;
+font-size:20px;
+transition:.3s;
+}
+.social a:hover{color:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(40px);transition:1s}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+</style>
 </head>
-<body>
 
+<body>
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#"><i class="fas fa-mountain me-2"></i> HTC UET PESHAWAR</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto text-uppercase" style="font-size: 0.75rem; letter-spacing: 1px;">
-                <li class="nav-item"><a class="nav-link" href="#about">History</a></li>
-                <li class="nav-item"><a class="nav-link" href="#council">Council</a></li>
-                <li class="nav-item"><a class="nav-link" href="#cabinet">Cabinet</a></li>
-                <li class="nav-item"><a class="nav-link text-warning" href="#join">Join Now</a></li>
-            </ul>
-        </div>
-    </div>
+<div class="container">
+
+<a class="navbar-brand d-flex align-items-center gap-2" href="#">
+<img src="logo.png" alt="HTC Logo" style="width:40px; height:40px; object-fit:contain;">
+<span style="font-weight:700; font-size:0.9rem;">
+Hiking & Trekking Club<br>
+<small style="font-size:0.7rem;">UET Peshawar</small>
+</span>
+</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="nav">
+<ul class="navbar-nav ms-auto">
+<li><a class="nav-link" href="#about">History</a></li>
+<li><a class="nav-link" href="#council">Council</a></li>
+<li><a class="nav-link" href="#cabinet">Cabinet</a></li>
+<li><a class="nav-link" href="#gallery">Gallery</a></li>
+<li><a class="nav-link" href="#join">Join</a></li>
+</ul>
+</div>
+
+</div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-        <p>FOUNDED 1980</p>
-        <h1>Hiking & Trekking Club</h1>
-        <h2>Uet Peshawar</h2>
-        <div class="hero-tagline mb-5">Explore, Lead, Protect the Mountains</div>
-        <a href="#about" class="btn btn-gold">DISCOVER OUR STORY</a>
-    </div>
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<h1>Hiking & Trekking Club</h1>
+<h3>UET Peshawar</h3>
+<p>Explore • Lead • Protect</p>
+<a href="#about" class="btn btn-gold">Discover</a>
+</div>
 </section>
 
-<section id="about" class="section-padding bg-white">
-    <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-                <h2 class="mb-4">Four Decades of <span class="serif text-success">Summiting</span></h2>
-                <p>The Hiking & Trekking Club UET Peshawar is one of the oldest adventure societies in the region. Since the early 1980s, we have served as the bridge between technical education and the raw power of nature.</p>
-                <div class="history-highlight serif">
-                    "We don't just climb mountains; we build leaders who respect the wilderness as much as they challenge it."
-                </div>
-                <p>From the lush valleys of the Galiyat to the 7,000m peaks of the Karakoram, our expeditions focus on survival, resilience, and environmental stewardship. We instill a culture of 'Leave No Trace' to ensure our mountains remain pristine for the next 45 years.</p>
-            </div>
-            <div class="col-lg-6">
-                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" class="img-fluid" alt="Expedition">
-            </div>
-        </div>
-    </div>
+<!-- ABOUT -->
+<section id="about" class="section reveal">
+<div class="container">
+<h2 class="title">Our Legacy</h2>
+<p class="text-center">Since 1980, shaping leaders through mountains and adventure.</p>
+</div>
+</section>
+<!-- TRAIL COUNCIL -->
+<section id="council" class="section bg-light reveal">
+<div class="container">
+<h2 class="title">Trail Council</h2>
+
+<div class="row g-4 justify-content-center">
+
+<div class="col-md-4">
+<div class="card-custom">
+<img src="aimal.png" class="cabinet-img mb-3">
+<h5>Dr. Laiq Hasan</h5>
+<p class="text-success">Chief Patron</p>
+<p class="small text-muted">Chairman DCSE</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card-custom">
+<img src="aimal.png" class="cabinet-img mb-3">
+<h5>Engr. Ibad Khan</h5>
+<p class="text-success">Senior Advisor</p>
+<p class="small text-muted">Department of CS</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card-custom">
+<img src="aimal.png" class="cabinet-img mb-3">
+<h5>Engr. Ibad Khan</h5>
+<p class="text-success">Senior Advisor</p>
+<p class="small text-muted">Department of CS</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<!-- EXECUTIVE CABINET -->
+<section id="cabinet" class="section reveal">
+<div class="container">
+<h2 class="title">Executive Cabinet</h2>
+
+<div class="row g-4">
+
+<!-- Captain -->
+<div class="col-lg-3 col-md-6">
+<div class="card-custom">
+<img src="aimal.png" class="cabinet-img mb-3">
+<h5>Aimal Khan</h5>
+<p class="text-success fw-bold">Captain</p>
+
+<div>
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+</div>
+
+<p class="small mt-2">“Leading every step towards adventure.”</p>
+</div>
+</div>
+
+<!-- Vice -->
+<div class="col-lg-3 col-md-6">
+<div class="card-custom">
+<img src="https://via.placeholder.com/150" class="cabinet-img mb-3">
+<h5>TBD</h5>
+<p class="text-success fw-bold">Vice Captain</p>
+</div>
+</div>
+
+<!-- Finance -->
+<div class="col-lg-3 col-md-6">
+<div class="card-custom">
+<img src="https://via.placeholder.com/150" class="cabinet-img mb-3">
+<h5>TBD</h5>
+<p class="text-success fw-bold">Finance Lead</p>
+</div>
+</div>
+
+<!-- Expedition -->
+<div class="col-lg-3 col-md-6">
+<div class="card-custom">
+<img src="https://via.placeholder.com/150" class="cabinet-img mb-3">
+<h5>TBD</h5>
+<p class="text-success fw-bold">Expedition Lead</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<!-- STATS -->
+<section id="stats" class="section bg-light reveal">
+<div class="container">
+<h2 class="title">Our Impact</h2>
+<div class="row">
+<div class="col-md-4 stat">
+<h2>45+</h2>
+<p>Years of Legacy</p>
+</div>
+<div class="col-md-4 stat">
+<h2>100+</h2>
+<p>Expeditions</p>
+</div>
+<div class="col-md-4 stat">
+<h2>1000+</h2>
+<p>Members</p>
+</div>
+</div>
+</div>
 </section>
 
-<section id="council" class="section-padding bg-light">
-    <div class="container">
-        <h2 class="section-title">The Trail Council</h2>
-        <div class="row g-4 justify-content-center">
-            <div class="col-md-4">
-                <div class="cabinet-card">
-                    <img src="aimal.png" class="rounded-circle cabinet-img" alt="Aimal Khan">
-                    <h6 class="text-gold mb-3">CHIEF PATRON</h6>
-                    <h4 class="h5">Dr. Laiq Hasan</h4>
-                    <p class="small text-muted">Chairman DCSE, UET Peshawar</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="cabinet-card">
-                    <img src="aimal.png" class="rounded-circle cabinet-img" alt="Aimal Khan">
-                    <h6 class="text-gold mb-3">Senior Trail Advisors</h6>
-                    <h4 class="h5">Engr. Ibad khan </h4>
-                    <p class="small text-muted">Dept. of Computer Systems</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="cabinet-card">
-                    <img src="aimal.png" class="rounded-circle cabinet-img" alt="Aimal Khan">
-                    <h6 class="text-gold mb-3">Senior Trail Advisors</h6>
-                    <h4 class="h5">Engr. Ibad khan </h4>
-                    <p class="small text-muted">Dept. of Computer Systems</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="cabinet-card">
-                    <img src="aimal.png" class="rounded-circle cabinet-img" alt="Aimal Khan">
-                    <h6 class="text-gold mb-3">Senior Trail Advisors</h6>
-                    <h4 class="h5">Engr. Ibad khan </h4>
-                    <p class="small text-muted">Dept. of Computer Systems</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- GALLERY -->
+<section id="gallery" class="section reveal">
+<div class="container">
+<h2 class="title">Expeditions</h2>
+<div class="row gallery g-3">
+<div class="col-md-4"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"></div>
+<div class="col-md-4"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027"></div>
+<div class="col-md-4"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"></div>
+</div>
+</div>
 </section>
 
-<section id="cabinet" class="section-padding bg-white">
-    <div class="container">
-        <h2 class="section-title">Executive Cabinet</h2>
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6">
-                <div class="cabinet-card">
-                    <img src="aimal.png" class="rounded-circle cabinet-img" alt="Aimal Khan">
-                    <h5 class="mb-1">Aimal Khan</h5>
-                    <p class="text-success small fw-bold">Club Captain</p>
-                    <div class="mt-3">
-                        <a href="#" class="text-dark me-2"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-dark"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="cabinet-card">
-                    <img src="https://via.placeholder.com/150" class="rounded-circle cabinet-img">
-                    <h5 class="mb-1">TBD</h5>
-                    <p class="text-success small fw-bold">Vice Captain</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="cabinet-card">
-                    <img src="https://via.placeholder.com/150" class="rounded-circle cabinet-img">
-                    <h5 class="mb-1">TBD</h5>
-                    <p class="text-success small fw-bold">Finance Lead</p>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-6">
-                <div class="cabinet-card">
-                    <img src="https://via.placeholder.com/150" class="rounded-circle cabinet-img">
-                    <h5 class="mb-1">TBD</h5>
-                    <p class="text-success small fw-bold">Expedition Lead</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- QUOTES -->
+<section id="quotes" class="section bg-light reveal">
+<div class="container">
+<h2 class="title">Voices of Explorers</h2>
+
+<div class="quote">“Mountains taught me discipline and silence.” — Aimal Khan</div>
+<div class="quote">“Every trail builds a stronger version of you.”</div>
+
+</div>
 </section>
 
-<section id="join" class="container py-5">
-    <div class="join-box">
-        <h2 class="display-5 mb-3">Adventure is Calling</h2>
-        <p class="lead mb-4">Registration for the 2026 Spring Expedition is now open for all UET Departments.</p>
-        <a href="https://forms.gle/8WUutwwyDvggkheu8" target="_blank" class="btn btn-gold">FILL APPLICATION FORM</a>
-    </div>
+<!-- JOIN -->
+<section id="join" class="section text-center reveal">
+<h2>Adventure Awaits</h2>
+<p>Join the next expedition</p>
+<a href="https://forms.gle/8WUutwwyDvggkheu8" target="_blank" class="btn btn-gold">Apply Now</a>
 </section>
 
+<!-- FOOTER -->
 <footer>
-    <div class="container">
-        <div class="row g-5">
-            <div class="col-lg-4">
-                <a href="#" class="footer-logo">Hiking & Trekking Club UET Peshawar</a>
-                <p class="small opacity-50">Empowering engineering students through adventure and environmental conservation since 1980.</p>
-                <div class="mt-4">
-                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-white"><i class="fab fa-strava"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <h6 class="fw-bold mb-4">Basecamp</h6>
-                <p class="small opacity-50">Hiking & Trekking Club Office<br>Student Service Center, UET Peshawar<br>Khyber Pakhtunkhwa, Pakistan</p>
-            </div>
-        </div>
-        <hr class="my-5 opacity-10">
-        <div class="text-center small opacity-50">
-            © 2026 Hiking & Trekking Club, UET Peshawar. Designed for Explorers.
-        </div>
-    </div>
+<div class="container">
+<div class="row">
+
+<div class="col-md-4">
+<h5>HTC UET Peshawar</h5>
+<p>Explore. Lead. Protect the Mountains.</p>
+</div>
+
+<div class="col-md-4">
+<h6>Contact</h6>
+<p>Email: htc@uetpeshawar.edu.pk</p>
+</div>
+
+<div class="col-md-4">
+<h6>Follow Us</h6>
+<div class="social">
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-facebook"></i></a>
+</div>
+</div>
+
+</div>
+
+<hr>
+
+<p class="text-center small">© 2026 Hiking & Trekking Club UET Peshawar</p>
+
+</div>
 </footer>
 
 <script>
-    // Reveal Navbar on Scroll
-    window.addEventListener("scroll", function(){
-        const nav = document.querySelector(".navbar");
-        if(window.scrollY > window.innerHeight - 100) {
-            nav.classList.add("scrolled");
-        } else {
-            nav.classList.remove("scrolled");
-        }
-    });
+
+// navbar
+window.addEventListener("scroll",()=>{
+document.querySelector(".navbar").classList.toggle("scrolled",window.scrollY>200);
+});
+
+// reveal animation
+function reveal(){
+document.querySelectorAll(".reveal").forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100){
+el.classList.add("active");
+}
+});
+}
+window.addEventListener("scroll",reveal);
+
 </script>
 
 </body>

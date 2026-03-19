@@ -11,8 +11,8 @@
 
     <style>
         :root {
-            --green: #1b4332;
-            --dark: #081c15;
+            --green: #0b221a; /* Your preferred forest green */
+            --dark: #05130e;
             --gold: #f4a75a;
             --light-bg: #f8f9fa;
         }
@@ -29,17 +29,19 @@
 
         /* HERO */
         .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; position: relative; }
-        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; animation: heroSlide 20s infinite alternate, zoomEffect 20s infinite alternate; z-index: -1; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; animation: heroSlide 24s infinite alternate, zoomEffect 20s infinite alternate; z-index: -1; }
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)); z-index: 0; }
         .hero-content { z-index: 2; max-width: 800px; padding: 20px; }
 
         @keyframes zoomEffect { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
-       @keyframes heroSlide {
-    0% { background-image: url('a (1).jpg'); } 
-    50% { background-image: url('a (2).jpg'); }
-    100% { background-image: url('a2.jpg'); }
-}
-        .btn-gold { background: var(--gold); color: var(--dark); padding: 12px 40px; font-weight: 700; border-radius: 50px; transition: 0.3s; text-decoration: none; display: inline-block; }
+        @keyframes heroSlide {
+            0%   { background-image: url('a (1).jpg'); }
+            33%  { background-image: url('a (2).jpg'); }
+            66%  { background-image: url('a (4).jpg'); }
+            100% { background-image: url('a2.jpg'); }
+        }
+
+        .btn-gold { background: var(--gold); color: var(--dark); padding: 12px 40px; font-weight: 700; border-radius: 50px; transition: 0.3s; text-decoration: none; display: inline-block; border: none; }
         .btn-gold:hover { background: #e2ac76; transform: translateY(-3px); color: var(--dark); }
 
         /* SECTION STYLING */
@@ -48,10 +50,10 @@
 
         /* WAVE DIVIDERS */
         .spacer { aspect-ratio: 960/200; width: 100%; background-repeat: no-repeat; background-position: center; background-size: cover; }
-        .layer1 { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 960 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 120L48 115C96 110 192 100 288 120C384 140 480 190 576 195C672 200 768 160 864 145C960 130 1056 140 1152 165L1152 300L1056 300C960 300 864 300 768 300C672 300 576 300 480 300C384 300 288 300 192 300C96 300 48 300 0 300Z' fill='%231b4332'%3E%3C/path%3E%3C/svg%3E"); }
-        .layer2 { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 960 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 120L48 115C96 110 192 100 288 120C384 140 480 190 576 195C672 200 768 160 864 145C960 130 1056 140 1152 165L1152 0L1056 0C960 0 864 0 768 0C672 0 576 0 480 0C384 0 288 0 192 0C96 0 48 0 0 0Z' fill='%231b4332'%3E%3C/path%3E%3C/svg%3E"); }
+        .layer1 { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 960 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 120L48 115C96 110 192 100 288 120C384 140 480 190 576 195C672 200 768 160 864 145C960 130 1056 140 1152 165L1152 300L1056 300C960 300 864 300 768 300C672 300 576 300 480 300C384 300 288 300 192 300C96 300 48 300 0 300Z' fill='%230b221a'%3E%3C/path%3E%3C/svg%3E"); }
+        .layer2 { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 960 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 120L48 115C96 110 192 100 288 120C384 140 480 190 576 195C672 200 768 160 864 145C960 130 1056 140 1152 165L1152 0L1056 0C960 0 864 0 768 0C672 0 576 0 480 0C384 0 288 0 192 0C96 0 48 0 0 0Z' fill='%230b221a'%3E%3C/path%3E%3C/svg%3E"); }
         .layer-gallery {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 960 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 120L48 115C96 110 192 100 288 120C384 140 480 190 576 195C672 200 768 160 864 145C960 130 1056 140 1152 165L1152 300L1056 300C960 300 864 300 768 300C672 300 576 300 480 300C384 300 288 300 192 300C96 300 48 300 0 300Z' fill='%23081c15'%3E%3C/path%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 960 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 120L48 115C96 110 192 100 288 120C384 140 480 190 576 195C672 200 768 160 864 145C960 130 1056 140 1152 165L1152 300L1056 300C960 300 864 300 768 300C672 300 576 300 480 300C384 300 288 300 192 300C96 300 48 300 0 300Z' fill='%2305130e'%3E%3C/path%3E%3C/svg%3E");
             display: flex; align-items: flex-end; justify-content: center; padding-bottom: 20px;
         }
 
@@ -77,13 +79,51 @@
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* FOOTER */
-        footer { background: #05130e; color: #ddd; padding: 60px 0; }
-
-        @media(max-width:768px){
-            .gallery-title { font-size: 2rem; letter-spacing: 5px; }
-            .hero h1 { font-size: 2.2rem; }
-            .nav-social-icons { display: none; }
+        footer { 
+            background: var(--green); 
+            color: #ffffff; 
+            padding: 80px 0 40px 0; 
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
+
+        .footer-description, .footer-info {
+            color: #ffffff !important;
+            font-weight: 600; /* Bold writing for clarity */
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { 
+            color: #ffffff !important; 
+            text-decoration: none; 
+            transition: 0.3s; 
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .footer-links a:hover { color: var(--gold) !important; padding-left: 5px; }
+
+        .footer-socials a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .footer-socials a:hover {
+            background: var(--gold);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .text-gold { color: var(--gold) !important; }
+        .footer-bottom-text { color: #ffffff !important; font-size: 0.85rem; }
     </style>
 </head>
 
@@ -91,29 +131,31 @@
 
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-                <img src="logo.png" alt="HTC" style="width:40px; height:40px;">
-                <span style="line-height: 1.1;">
-                    <span style="font-weight:700; font-size:1rem; display:block;">Hiking & Trekking Club</span>
-                    <small style="font-size:0.7rem; color: var(--gold);">UET Peshawar</small>
-                </span>
-            </a>
+            <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+    <img src="uet.png" alt="UET Peshawar" style="width:40px; height:40px; object-fit: contain;">
+    <img src="logo.png" alt="HTC" style="width:40px; height:40px; object-fit: contain;">
+    
+    <span style="line-height: 1.1; border-left: 1px solid rgba(255,255,255,0.3); padding-left: 12px;">
+        <span style="font-weight:700; font-size:0.95rem; display:block; text-transform: uppercase;">Hiking & Trekking Club</span>
+        <small style="font-size:0.7rem; color: var(--gold); letter-spacing: 1px;">UET PESHAWAR</small>
+    </span>
+</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#about">History</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#cabinet">Cabinet</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cabinet">Team</a></li>
                     <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
                     
                     <div class="nav-social-icons d-flex ms-lg-4">
                         <a href="#" class="nav-social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="nav-social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="nav-social-link"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="nav-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://youtube.com/@hikingandtrekkingclubuetpeshaw?si=fC8VtUrZrWIexVql" class="nav-social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/company/htc-uet-peshawar/ " class="nav-social-link"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <li class="nav-item"><a class="btn btn-gold btn-sm ms-lg-4 mt-2 mt-lg-0" href="#">Join Now</a></li>
+                    <li class="nav-item"><a class="btn btn-gold btn-sm ms-lg-4 mt-2 mt-lg-0" href="https://forms.gle/76TvSRvx8TaZYHmm9" target="_blank">Join Now</a></li>
                 </ul>
             </div>
         </div>
@@ -123,7 +165,7 @@
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="display-3 fw-bold mb-3">Hiking & Trekking Club</h1>
+            <h1 class="display-3 fw-bold mb-3">Hiking And Trekking Club</h1>
             <p class="lead mb-4" style="letter-spacing: 4px;">UET PESHAWAR • SINCE 1980s</p>
             <p class="lead mb-4" style="letter-spacing: 2px;">EXPLORE • LEAD • PROTECT</p>
             <a href="#about" class="btn-gold">Discover Our Legacy</a>
@@ -174,6 +216,7 @@
                         <span class="role-badge badge-gold">Chief Patron</span>
                         <h5 class="fw-bold">Dr. Laiq Hasan</h5>
                         <p class="text-muted small">Club Incharge</p>
+                        <p class="text-muted small"><i>i am not lost i am just exploring</i></p>
                     </div>
                 </div>
                 <div class="col-md-5">
@@ -253,7 +296,7 @@
         <div class="container text-center">
             <h2 class="fw-bold mb-1" style="font-size: 1.5rem; letter-spacing: 2px;">JOIN OUR JOURNEY</h2>
             <p class="small text-muted mb-3">The mountains are calling. Are you ready?</p>
-            <a href="#" class="btn-gold btn-sm">Apply for Membership</a>
+            <a href="https://forms.gle/76TvSRvx8TaZYHmm9" target="_blank" class="btn-gold btn-sm">Apply for Membership</a>
         </div>
     </section>
 
@@ -275,9 +318,51 @@
     </section>
 
     <footer>
-        <div class="container text-center">
-            <h4 class="fw-bold text-white mb-4">HTC UET PESHAWAR</h4>
-            <p>© 2026 Hiking & Trekking Club UET Peshawar.</p>
+        <div class="container">
+            <div class="row g-4 text-start">
+                <div class="col-lg-4">
+                    <h4 class="fw-bold text-white mb-3">HTC UET PESHAWAR</h4>
+                    <p class="footer-description">
+                        Established in the 1980s, the Hiking & Trekking Club is dedicated to fostering a spirit of adventure and environmental stewardship among the students of UET Peshawar.
+                    </p>
+                    <div class="footer-socials mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/htc-uet-peshawar/ "><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://youtube.com/@hikingandtrekkingclubuetpeshaw?si=fC8VtUrZrWIexVql"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 ps-lg-5">
+                    <h5 class="text-white fw-bold mb-3">Quick Navigation</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#about"><i class="fas fa-chevron-right me-2"></i> Our History</a></li>
+                        <li><a href="#cabinet"><i class="fas fa-chevron-right me-2"></i> Club Leadership</a></li>
+                        <li><a href="#gallery"><i class="fas fa-chevron-right me-2"></i> Expedition Gallery</a></li>
+                        <li><a href="https://forms.gle/76TvSRvx8TaZYHmm9" target="_blank"><i class="fas fa-chevron-right me-2"></i> Membership Form</a></li>
+                    </ul>
+                </div>
+
+              <div class="col-lg-4">
+    <h5 class="text-white fw-bold mb-3">Reach Us</h5>
+    <p class="footer-info"><i class="fas fa-map-marker-alt text-gold me-2"></i> DCSE, UET Peshawar, Jamrud Road</p>
+    <p class="footer-info"><i class="fas fa-envelope text-gold me-2"></i> htc@uetpeshawar.edu.pk</p>
+    <p class="footer-info mb-4"><i class="fas fa-clock text-gold me-2"></i> Mon - Fri: 08:00 AM - 04:00 PM</p>
+    
+    <div class="d-flex align-items-center gap-3 mt-3">
+    <img src="uet.png" alt="HTC Logo" style="height: 55px; width: auto; filter: brightness(1.1);">
+    <img src="logo.png" alt="HTC Logo" style="height: 55px; width: auto; filter: brightness(1.1);">
+</div>
+</div>
+
+            <hr style="border-color: rgba(255,255,255,0.1); margin: 40px 0;">
+
+            <div class="row text-center">
+                <div class="col-12">
+                    <p class="footer-bottom-text mb-1">© 2026 Hiking & Trekking Club Uet Peshawar. All Rights Reserved.</p>
+                   
+                </div>
+            </div>
         </div>
     </footer>
 

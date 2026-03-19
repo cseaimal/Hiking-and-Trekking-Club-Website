@@ -17,147 +17,73 @@
             --light-bg: #f8f9fa;
         }
 
+        html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color: #fff; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
 
         /* NAVBAR */
-        .navbar {
-            transition: 0.4s all ease;
-            padding: 15px 0;
-            background: transparent;
-        }
-        .navbar.scrolled {
-            background: rgba(8, 28, 21, 0.95) !important;
-            backdrop-filter: blur(10px);
-            padding: 10px 0;
-        }
+        .navbar { transition: 0.4s all ease; padding: 15px 0; background: transparent; }
+        .navbar.scrolled { background: rgba(8, 28, 21, 0.95) !important; backdrop-filter: blur(10px); padding: 10px 0; }
+        .nav-social-link { color: #fff; font-size: 1.1rem; margin-left: 15px; transition: 0.3s; opacity: 0.8; }
+        .nav-social-link:hover { color: var(--gold); opacity: 1; transform: translateY(-2px); }
 
-        /* HERO SECTION */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            position: relative;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover;
-            background-position: center;
-            animation: heroSlide 20s infinite alternate, zoomEffect 20s infinite alternate;
-            z-index: -1;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
-            z-index: 0;
-        }
-
+        /* HERO */
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; position: relative; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; animation: heroSlide 20s infinite alternate, zoomEffect 20s infinite alternate; z-index: -1; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)); z-index: 0; }
         .hero-content { z-index: 2; max-width: 800px; padding: 20px; }
 
         @keyframes zoomEffect { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
-        @keyframes heroSlide {
-            0% { background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470'); }
-            50% { background-image: url('https://images.unsplash.com/photo-1472396961693-142e6e269027'); }
-            100% { background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee'); }
-        }
-
-        /* BUTTONS */
-        .btn-gold {
-            background: var(--gold);
-            color: var(--dark);
-            padding: 12px 40px;
-            font-weight: 700;
-            border-radius: 50px;
-            transition: 0.3s;
-            border: none;
-            text-decoration: none;
-            display: inline-block;
-        }
+       @keyframes heroSlide {
+    0% { background-image: url('a (1).jpg'); } 
+    50% { background-image: url('a (2).jpg'); }
+    100% { background-image: url('a2.jpg'); }
+}
+        .btn-gold { background: var(--gold); color: var(--dark); padding: 12px 40px; font-weight: 700; border-radius: 50px; transition: 0.3s; text-decoration: none; display: inline-block; }
         .btn-gold:hover { background: #e2ac76; transform: translateY(-3px); color: var(--dark); }
 
         /* SECTION STYLING */
-        .section { padding: 100px 0; }
-        .title { font-family: 'Montserrat'; font-weight: 800; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
-        .subtitle { color: var(--green); font-weight: 700; text-align: center; margin-bottom: 40px; text-transform: uppercase; font-size: 1.2rem; }
-
-        /* CABINET CARDS */
-        .cabinet-card {
-            background: #fff;
-            border-radius: 20px;
-            padding: 30px 15px;
-            text-align: center;
-            transition: 0.4s;
-            border: 1px solid rgba(0,0,0,0.05);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .cabinet-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-        .cabinet-img {
-            width: 120px; height: 120px; border-radius: 50%;
-            object-fit: cover; margin-bottom: 15px;
-            border: 3px solid var(--green); padding: 4px;
-        }
         .section-padding { padding: 100px 0; }
-        .history-highlight { border-left: 3px solid var(--gold); padding-left: 25px; margin: 30px 0; font-size: 1.2rem; }
+        .title { font-weight: 800; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
 
-        .section-title { margin-bottom: 60px; color: var(--green-deep); text-align: center; position: relative; }
-        .section-title::after { content: ''; width: 50px; height: 3px; background: var(--gold); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
-        .captain-card .cabinet-img { border-color: var(--gold); width: 140px; height: 140px; }
-
-        .role-badge {
-            background: var(--green); color: var(--gold);
-            font-size: 0.65rem; font-weight: 700;
-            padding: 4px 12px; border-radius: 50px;
-            display: inline-block; margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        .captain-badge { background: var(--gold); color: var(--dark); }
-
-        .explorer-quote {
-            font-size: 0.8rem; font-style: italic; color: #666;
-            margin-top: auto; border-top: 1px solid #eee; padding-top: 10px;
-            width: 100%;
+        /* WAVE DIVIDERS */
+        .spacer { aspect-ratio: 960/200; width: 100%; background-repeat: no-repeat; background-position: center; background-size: cover; }
+        .layer1 { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 960 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 120L48 115C96 110 192 100 288 120C384 140 480 190 576 195C672 200 768 160 864 145C960 130 1056 140 1152 165L1152 300L1056 300C960 300 864 300 768 300C672 300 576 300 480 300C384 300 288 300 192 300C96 300 48 300 0 300Z' fill='%231b4332'%3E%3C/path%3E%3C/svg%3E"); }
+        .layer2 { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 960 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 120L48 115C96 110 192 100 288 120C384 140 480 190 576 195C672 200 768 160 864 145C960 130 1056 140 1152 165L1152 0L1056 0C960 0 864 0 768 0C672 0 576 0 480 0C384 0 288 0 192 0C96 0 48 0 0 0Z' fill='%231b4332'%3E%3C/path%3E%3C/svg%3E"); }
+        .layer-gallery {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 960 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 120L48 115C96 110 192 100 288 120C384 140 480 190 576 195C672 200 768 160 864 145C960 130 1056 140 1152 165L1152 300L1056 300C960 300 864 300 768 300C672 300 576 300 480 300C384 300 288 300 192 300C96 300 48 300 0 300Z' fill='%23081c15'%3E%3C/path%3E%3C/svg%3E");
+            display: flex; align-items: flex-end; justify-content: center; padding-bottom: 20px;
         }
 
-        .section-divider { border-bottom: 2px dashed #ddd; margin: 40px 0 60px; }
+        /* CABINET SECTION */
+        .bg-green-section { background: var(--green); color: white; padding: 40px 0; }
+        .leader-card { background: #fff; border-radius: 20px; padding: 30px; text-align: center; transition: 0.4s; position: relative; overflow: hidden; color: #333; height: 100%; border: none; }
+        .leader-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
+        .leader-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--gold), var(--green)); }
+        .cabinet-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid var(--green); padding: 4px; }
+        .role-badge { display: inline-block; padding: 5px 15px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; }
+        .badge-gold { background: var(--gold); color: #000; }
+        .badge-green { background: var(--green); color: #fff; }
 
         /* GALLERY */
-        #gallery { background: var(--dark); overflow: hidden; padding: 100px 0; }
-        .gallery-strip {
-            display: flex; gap: 20px; width: max-content;
-            animation: scroll 40s linear infinite;
-        }
+        #gallery { background: var(--dark); overflow: hidden; padding-bottom: 100px; }
+        .gallery-strip { display: flex; gap: 20px; width: max-content; animation: scroll 40s linear infinite; }
         .gallery-strip.reverse { animation-direction: reverse; }
-        .gallery-strip img {
-            height: 240px; width: 340px; object-fit: cover;
-            border-radius: 15px; filter: grayscale(20%); transition: 0.5s;
-        }
-        .gallery-strip img:hover { filter: grayscale(0%); transform: scale(1.03); }
+        .gallery-strip img { height: 240px; width: 340px; object-fit: cover; border-radius: 15px; transition: 0.5s; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .gallery-strip img:hover { transform: scale(1.05); filter: brightness(1.1); }
+        .gallery-title { font-weight: 800; font-size: 3.5rem; color: #fff; text-transform: uppercase; letter-spacing: 10px; margin: 0; z-index: 5; text-shadow: 2px 4px 10px rgba(0,0,0,0.3); }
+        .gallery-title span { color: var(--gold); }
 
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-33.33%); }
-        }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* FOOTER */
-        footer { background: #05130e; color: #ddd; padding: 80px 0 30px; }
-        .social a { color: #fff; font-size: 1.5rem; margin-right: 20px; transition: 0.3s; }
-        .social a:hover { color: var(--gold); }
+        footer { background: #05130e; color: #ddd; padding: 60px 0; }
 
-        /* ANIMATIONS */
-        .reveal { opacity: 0; transform: translateY(40px); transition: 1s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        @media(max-width:768px){
+            .gallery-title { font-size: 2rem; letter-spacing: 5px; }
+            .hero h1 { font-size: 2.2rem; }
+            .nav-social-icons { display: none; }
+        }
     </style>
 </head>
 
@@ -176,11 +102,18 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="nav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#about">History</a></li>
                     <li class="nav-item"><a class="nav-link" href="#cabinet">Cabinet</a></li>
                     <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-outline-light btn-sm ms-lg-3" href="#">Join Now</a></li>
+                    
+                    <div class="nav-social-icons d-flex ms-lg-4">
+                        <a href="#" class="nav-social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="nav-social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="nav-social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="nav-social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <li class="nav-item"><a class="btn btn-gold btn-sm ms-lg-4 mt-2 mt-lg-0" href="#">Join Now</a></li>
                 </ul>
             </div>
         </div>
@@ -191,230 +124,169 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="display-3 fw-bold mb-3">Hiking & Trekking Club</h1>
-            <p class="lead mb-4" style="letter-spacing: 4px;">Uet Peshawar 1980s</p>
-            <p class="lead mb-4" style="letter-spacing: 4px;">EXPLORE • LEAD • PROTECT</p>
+            <p class="lead mb-4" style="letter-spacing: 4px;">UET PESHAWAR • SINCE 1980s</p>
+            <p class="lead mb-4" style="letter-spacing: 2px;">EXPLORE • LEAD • PROTECT</p>
             <a href="#about" class="btn-gold">Discover Our Legacy</a>
         </div>
     </section>
 
     <section id="about" class="section-padding bg-white">
-    <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-                <h2 class="mb-4">Four Decades of <span class="serif text-success">Summiting</span></h2>
-                <p>The Hiking & Trekking Club UET Peshawar is one of the oldest adventure societies in the region. Since the early 1980s, we have served as the bridge between technical education and the raw power of nature.</p>
-                <div class="history-highlight serif">
-                    "We don't just climb mountains; we build leaders who respect the wilderness as much as they challenge it."
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Four Decades of <span style="color:var(--green)">Summiting</span></h2>
+                    <p>The Hiking & Trekking Club UET Peshawar is one of the oldest adventure societies in the region. Since the early 1980s, we have served as the bridge between technical education and the raw power of nature.</p>
+                    <div style="border-left: 3px solid var(--gold); padding-left: 25px; margin: 30px 0; font-style: italic;">
+                        "We don't just climb mountains; we build leaders who respect the wilderness as much as they challenge it."
+                    </div>
                 </div>
-                <p>From the lush valleys of the Galiyat to the 7,000m peaks of the Karakoram, our expeditions focus on survival, resilience, and environmental stewardship. We instill a culture of 'Leave No Trace' to ensure our mountains remain pristine for the next 45 years.</p>
+                <div class="col-lg-6">
+                    <img src="logo1.png" class="img-fluid" alt="Expedition">
+                </div>
             </div>
-            <div class="col-lg-6">
-                <img src="logo.png" class="img-fluid" alt="Expedition">
-            </div>
-        </div>
-         <div class="row g-4 mt-5">
+            <div class="row g-4 mt-5 text-center">
                 <div class="col-md-4">
-                    <h2 class="counter display-4 fw-bold text-success" data-target="45">0</h2>
+                    <h2 class="counter display-4 fw-bold" style="color:var(--green)" data-target="45">0</h2>
                     <p class="text-muted small fw-bold">YEARS OF HISTORY</p>
                 </div>
                 <div class="col-md-4">
-                    <h2 class="counter display-4 fw-bold text-success" data-target="150">0</h2>
+                    <h2 class="counter display-4 fw-bold" style="color:var(--green)" data-target="150">0</h2>
                     <p class="text-muted small fw-bold">EXPEDITIONS</p>
                 </div>
                 <div class="col-md-4">
-                    <h2 class="counter display-4 fw-bold text-success" data-target="2500">0</h2>
+                    <h2 class="counter display-4 fw-bold" style="color:var(--green)" data-target="2500">0</h2>
                     <p class="text-muted small fw-bold">MEMBERS</p>
                 </div>
             </div>
-    </div>
-</section>
+        </div>
+    </section>
 
-    <section id="cabinet" class="section bg-light reveal">
+    <div class="spacer layer1"></div>
+
+    <section id="cabinet" class="bg-green-section">
         <div class="container">
-            <h2 class="title">Club Leadership</h2>
-
-            <div class="mb-5">
-                <div>
-                <h3 class="subtitle"><i class="fas fa-users me-2"></i> Advisory Council</h3>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="cabinet-card captain-card">
-                            <img src="aimal.png" class="cabinet-img" alt="Captain">
-                            <span class="role-badge captain-badge">Chief Patron</span>
-                            <h5 class="fw-bold">Dr.Laiq Hasan</h5>
-                            <p class="small text-muted mb-2">Club Incharge</p>
-                            <p class="explorer-quote">"I am not lost, I am just an explorer."</p>
-                        </div>
+            <h2 class="title text-white">Club Leadership</h2>
+            
+            <div class="row g-4 justify-content-center mb-5">
+                <div class="col-md-5">
+                    <div class="leader-card">
+                        <img src="laiq.png" class="cabinet-img" alt="Dr. Laiq Hasan">
+                        <span class="role-badge badge-gold">Chief Patron</span>
+                        <h5 class="fw-bold">Dr. Laiq Hasan</h5>
+                        <p class="text-muted small">Club Incharge</p>
                     </div>
                 </div>
-
-                <div class="row g-4 justify-content-center mb-4">
-                    <div class="col-6 col-md-4 col-lg-3">
-                        <div class="cabinet-card">
-                            <span class="role-badge">Senior Explorer</span>
-                            <h6 class="fw-bold">Ibad</h6>
-                            <p class="explorer-quote">"Precision in every step."</p>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-3">
-                        <div class="cabinet-card">
-                            <span class="role-badge">Senior Explorer</span>
-                            <h6 class="fw-bold">Maaz</h6>
-                            <p class="explorer-quote">"Breaking heights and barriers."</p>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-3">
-                        <div class="cabinet-card">
-                            <span class="role-badge">Senior Explorer</span>
-                            <h6 class="fw-bold">Talha</h6>
-                            <p class="explorer-quote">"The pen charts the path."</p>
-                        </div>
+                <div class="col-md-5">
+                    <div class="leader-card">
+                        <img src="aimal.png" class="cabinet-img" alt="Aimal Khan">
+                        <span class="role-badge badge-green">Club Captain</span>
+                        <h5 class="fw-bold">Aimal Khan</h5>
+                        <p class="text-muted small">Overall Leadership</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="row g-4 justify-content-center">
-                    <div class="col-6 col-md-4 col-lg-3">
-                        <div class="cabinet-card">
-                            <span class="role-badge">Club Captain</span>
-                            <h6 class="fw-bold">Aimal khan</h6>
-                              <p class="small text-muted mb-2">Student Representative</p>
-                            <p class="explorer-quote">"Fueling the next big climb."</p>
-                        </div>
+            <div class="row g-4 justify-content-center mb-5">
+                <div class="col-md-5">
+                    <div class="leader-card">
+                        <img src="female-member.png" class="cabinet-img" alt="Vice Captain">
+                        <span class="role-badge badge-green">Vice Club Captain</span>
+                        <h5 class="fw-bold">Name Here</h5>
+                        <p class="text-muted small">Expedition Lead (Female Representative)</p>
                     </div>
-                    
+                </div>
+            </div>
+
+            <hr style="border-color: rgba(255,255,255,0.1); margin: 40px 0;">
+            <h3 class="text-center text-white fw-bold mb-4 text-uppercase" style="font-size: 1.1rem; letter-spacing: 3px;">Leads & Advisors</h3>
+
+            <div class="row g-3 justify-content-center">
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="leader-card p-3">
+                        <img src="member.png" class="cabinet-img" style="width:70px; height:70px;">
+                        <span class="role-badge badge-green" style="font-size:0.5rem">Expedition Lead</span>
+                        <h6 class="small fw-bold mb-0">Name</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="leader-card p-3">
+                        <img src="member.png" class="cabinet-img" style="width:70px; height:70px;">
+                        <span class="role-badge badge-green" style="font-size:0.5rem">Media Lead</span>
+                        <h6 class="small fw-bold mb-0">Name</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="leader-card p-3">
+                        <img src="member.png" class="cabinet-img" style="width:70px; height:70px;">
+                        <span class="role-badge badge-green" style="font-size:0.5rem">General Sec</span>
+                        <h6 class="small fw-bold mb-0">Name</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="leader-card p-3">
+                        <img src="member.png" class="cabinet-img" style="width:70px; height:70px;">
+                        <span class="role-badge badge-green" style="font-size:0.5rem">Finance Lead</span>
+                        <h6 class="small fw-bold mb-0">Name</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="leader-card p-3">
+                        <img src="member.png" class="cabinet-img" style="width:70px; height:70px;">
+                        <span class="role-badge badge-green" style="font-size:0.5rem">Advisor</span>
+                        <h6 class="small fw-bold mb-0">Name</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="leader-card p-3">
+                        <img src="member.png" class="cabinet-img" style="width:70px; height:70px;">
+                        <span class="role-badge badge-green" style="font-size:0.5rem">Advisor</span>
+                        <h6 class="small fw-bold mb-0">Name</h6>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-            <div class="section-divider"></div>
+    <div class="spacer layer2"></div>
 
-            <div>
-                <h3 class="subtitle"><i class="fas fa-users me-2"></i> Executive Cabinet</h3>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-md-6 col-lg-4 mb-4">
-                        <div class="cabinet-card captain-card">
-                            <img src="aimal.png" class="cabinet-img" alt="Captain">
-                            <span class="role-badge captain-badge">Club Captain</span>
-                            <h5 class="fw-bold">Aimal Khan</h5>
-                            <p class="small text-muted mb-2">Overall Leadership</p>
-                            <p class="explorer-quote">"I am not lost, I am just an explorer."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-4 justify-content-center mb-4">
-                    <div class="col-6 col-md-4 col-lg-3">
-                        <div class="cabinet-card">
-                            <span class="role-badge">Vice Captain (Ops)</span>
-                            <h6 class="fw-bold">Name Here</h6>
-                            <p class="explorer-quote">"Precision in every step."</p>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-3">
-                        <div class="cabinet-card">
-                            <span class="role-badge">Vice Captain (Women)</span>
-                            <h6 class="fw-bold">Name Here</h6>
-                            <p class="explorer-quote">"Breaking heights and barriers."</p>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-3">
-                        <div class="cabinet-card">
-                            <span class="role-badge">Secretary</span>
-                            <h6 class="fw-bold">Name Here</h6>
-                            <p class="explorer-quote">"The pen charts the path."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-4 justify-content-center">
-                    <div class="col-6 col-md-4 col-lg-3">
-                        <div class="cabinet-card">
-                            <span class="role-badge">Treasurer</span>
-                            <h6 class="fw-bold">Name Here</h6>
-                            <p class="explorer-quote">"Fueling the next big climb."</p>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-3">
-                        <div class="cabinet-card">
-                            <span class="role-badge">Expedition Director</span>
-                            <h6 class="fw-bold">Name Here</h6>
-                            <p class="explorer-quote">"Nature is the only map I need."</p>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-3">
-                        <div class="cabinet-card">
-                            <span class="role-badge">Gear Lead</span>
-                            <h6 class="fw-bold">Name Here</h6>
-                            <p class="explorer-quote">"Safety is the soul of adventure."</p>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-3">
-                        <div class="cabinet-card">
-                            <span class="role-badge">Media Lead</span>
-                            <h6 class="fw-bold">Name Here</h6>
-                            <p class="explorer-quote">"Capturing the wild, forever."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="join" style="padding: 40px 0; margin-top: -60px; margin-bottom: -60px; position: relative; z-index: 10;">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-1" style="font-size: 1.5rem; letter-spacing: 2px;">JOIN OUR JOURNEY</h2>
+            <p class="small text-muted mb-3">The mountains are calling. Are you ready?</p>
+            <a href="#" class="btn-gold btn-sm">Apply for Membership</a>
         </div>
     </section>
+
+    <div class="spacer layer-gallery">
+        <h2 class="gallery-title">Gall<span>ery</span></h2>
+    </div>
 
     <section id="gallery">
-        <div class="container text-center mb-5 reveal">
-            <h2 class="title text-light">Expedition Gallery</h2>
-        </div>
         <div class="gallery-strip">
-            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b">
-            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-            <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027">
-            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+            <img src="a (1).jpg"> <img src="a (2).jpg"> <img src="a (3).jpg">
+            <img src="a (4).jpg"> <img src="a (5).jpg"> <img src="a (6).jpg">
+            <img src="a (7).jpg"> <img src="a (8).jpg"> <img src="a (9).jpg">
         </div>
         <div class="gallery-strip reverse mt-4">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-            <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606">
-            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b">
+            <img src="a (5).jpg"> <img src="a (6).jpg"> <img src="a (7).jpg">
+            <img src="a (8).jpg"> <img src="a (1).jpg"> <img src="a (2).jpg">
+            <img src="a (3).jpg"> <img src="a (4).jpg"> <img src="a (9).jpg">
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-md-6">
-                    <h4 class="fw-bold text-white">HTC UET PESHAWAR</h4>
-                    <p>Building leaders through adventure. We provide the gear, you provide the spirit.</p>
-                </div>
-                <div class="col-md-3">
-                    <h6 class="text-white">Follow Us</h6>
-                    <div class="social">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <hr class="mt-5 border-secondary">
-            <p class="text-center small text-white-50">© 2026 Hiking & Trekking Club UET Peshawar.</p>
+        <div class="container text-center">
+            <h4 class="fw-bold text-white mb-4">HTC UET PESHAWAR</h4>
+            <p>© 2026 Hiking & Trekking Club UET Peshawar.</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Navbar scroll effect
         window.addEventListener("scroll", () => {
             document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 50);
         });
 
-        // Reveal animation
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add("active");
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
-
-        // Counter logic
         const countObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !entry.target.classList.contains('done')) {
@@ -438,10 +310,8 @@
         }, { threshold: 0.1 });
         document.querySelectorAll(".counter").forEach(c => countObserver.observe(c));
 
-        // Seamless Gallery Loop
         document.querySelectorAll('.gallery-strip').forEach(strip => {
-            const content = strip.innerHTML;
-            strip.innerHTML = content + content + content;
+            strip.innerHTML += strip.innerHTML;
         });
     </script>
 </body>

@@ -13,7 +13,7 @@
         :root {
             --green: #1b4332;
             --dark: #081c15;
-            --gold: #f4bf8a;
+            --gold: #f4a75a;
             --light-bg: #f8f9fa;
         }
 
@@ -108,6 +108,11 @@
             object-fit: cover; margin-bottom: 15px;
             border: 3px solid var(--green); padding: 4px;
         }
+        .section-padding { padding: 100px 0; }
+        .history-highlight { border-left: 3px solid var(--gold); padding-left: 25px; margin: 30px 0; font-size: 1.2rem; }
+
+        .section-title { margin-bottom: 60px; color: var(--green-deep); text-align: center; position: relative; }
+        .section-title::after { content: ''; width: 50px; height: 3px; background: var(--gold); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
         .captain-card .cabinet-img { border-color: var(--gold); width: 140px; height: 140px; }
 
         .role-badge {
@@ -186,17 +191,28 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="display-3 fw-bold mb-3">Hiking & Trekking Club</h1>
+            <p class="lead mb-4" style="letter-spacing: 4px;">Uet Peshawar 1980s</p>
             <p class="lead mb-4" style="letter-spacing: 4px;">EXPLORE • LEAD • PROTECT</p>
             <a href="#about" class="btn-gold">Discover Our Legacy</a>
         </div>
     </section>
 
-    <section id="about" class="section reveal">
-        <div class="container text-center">
-            <h2 class="title">Our Legacy</h2>
-            <p class="lead mb-5">Since 1980, shaping leaders through the mountains of Pakistan.</p>
-            
-            <div class="row g-4 mt-5">
+    <section id="about" class="section-padding bg-white">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <h2 class="mb-4">Four Decades of <span class="serif text-success">Summiting</span></h2>
+                <p>The Hiking & Trekking Club UET Peshawar is one of the oldest adventure societies in the region. Since the early 1980s, we have served as the bridge between technical education and the raw power of nature.</p>
+                <div class="history-highlight serif">
+                    "We don't just climb mountains; we build leaders who respect the wilderness as much as they challenge it."
+                </div>
+                <p>From the lush valleys of the Galiyat to the 7,000m peaks of the Karakoram, our expeditions focus on survival, resilience, and environmental stewardship. We instill a culture of 'Leave No Trace' to ensure our mountains remain pristine for the next 45 years.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="logo.png" class="img-fluid" alt="Expedition">
+            </div>
+        </div>
+         <div class="row g-4 mt-5">
                 <div class="col-md-4">
                     <h2 class="counter display-4 fw-bold text-success" data-target="45">0</h2>
                     <p class="text-muted small fw-bold">YEARS OF HISTORY</p>
@@ -210,34 +226,66 @@
                     <p class="text-muted small fw-bold">MEMBERS</p>
                 </div>
             </div>
-        </div>
-    </section>
+    </div>
+</section>
 
     <section id="cabinet" class="section bg-light reveal">
         <div class="container">
             <h2 class="title">Club Leadership</h2>
 
             <div class="mb-5">
-                <h3 class="subtitle"><i class="fas fa-mountain me-2"></i> Trail Council</h3>
+                <div>
+                <h3 class="subtitle"><i class="fas fa-users me-2"></i> Advisory Council</h3>
                 <div class="row g-4 justify-content-center">
-                    <div class="col-md-4 col-lg-3">
-                        <div class="cabinet-card">
-                            <img src="aimal.png" class="cabinet-img" alt="Chief Patron">
-                            <span class="role-badge">Chief Patron</span>
-                            <h6 class="fw-bold">Dr. Laiq Hasan</h6>
-                            <p class="explorer-quote">"The peak is just the beginning."</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3">
-                        <div class="cabinet-card">
-                            <img src="aimal.png" class="cabinet-img" alt="Advisor">
-                            <span class="role-badge">Advisor</span>
-                            <h6 class="fw-bold">Engr. Ibad Khan</h6>
-                            <p class="explorer-quote">"Wisdom is the best compass."</p>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="cabinet-card captain-card">
+                            <img src="aimal.png" class="cabinet-img" alt="Captain">
+                            <span class="role-badge captain-badge">Chief Patron</span>
+                            <h5 class="fw-bold">Dr.Laiq Hasan</h5>
+                            <p class="small text-muted mb-2">Club Incharge</p>
+                            <p class="explorer-quote">"I am not lost, I am just an explorer."</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="row g-4 justify-content-center mb-4">
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="cabinet-card">
+                            <span class="role-badge">Senior Explorer</span>
+                            <h6 class="fw-bold">Ibad</h6>
+                            <p class="explorer-quote">"Precision in every step."</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="cabinet-card">
+                            <span class="role-badge">Senior Explorer</span>
+                            <h6 class="fw-bold">Maaz</h6>
+                            <p class="explorer-quote">"Breaking heights and barriers."</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="cabinet-card">
+                            <span class="role-badge">Senior Explorer</span>
+                            <h6 class="fw-bold">Talha</h6>
+                            <p class="explorer-quote">"The pen charts the path."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4 justify-content-center">
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="cabinet-card">
+                            <span class="role-badge">Club Captain</span>
+                            <h6 class="fw-bold">Aimal khan</h6>
+                              <p class="small text-muted mb-2">Student Representative</p>
+                            <p class="explorer-quote">"Fueling the next big climb."</p>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
+        </div>
+    </section>
 
             <div class="section-divider"></div>
 

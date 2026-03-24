@@ -1,0 +1,56 @@
+{
+  "leaders": [
+    {
+      "name": "Dr. Laiq Hasan",
+      "role": "Chief Patron",
+      "image": "images/laiq.png",
+      "badge": "badge-gold"
+    },
+    {
+      "name": "Aimal Khan",
+      "role": "Club Captain",
+      "image": "images/aimal.png",
+      "badge": "badge-green"
+    }
+  ],
+  "advisory": [
+    {
+      "name": "Dr. Safdar Marwat",
+      "role": "Club Adviser",
+      "image": "images/logo.png"
+    },
+    {
+      "name": "Aimal Khan",
+      "role": "Advisor",
+      "image": "images/aimal.png"
+    }
+  ],
+  "executives": [
+    {
+      "name": "Executive Member",
+      "role": "Logistics Lead",
+      "image": "images/logo.png"
+    }
+  ],
+  "tours": [
+    {
+      "name": "Katora Lake",
+      "image": "images/a1.jpeg",
+      "status": "Recent",
+      "date": "August 2025"
+    },
+    {
+      "name": "Mushkpuri Top",
+      "image": "images/a2.jpg",
+      "status": "Upcoming",
+      "date": "March 2026"
+    }
+  ],
+  "gallery": [
+    "images/a1.jpeg",
+    "images/a2.jpg",
+    "images/a3.jpg",
+    "images/a4.jpg",
+    "images/a5.jpg"
+  ]
+}

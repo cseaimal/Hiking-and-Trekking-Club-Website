@@ -27,6 +27,31 @@
   ],
   "executives": [
     {
+      "name": "Muhammad Ahsan",
+      "role": "Sectetary",
+      "image": "images/logo.png"
+    },
+     {
+      "name": "Wadan Ijaz",
+      "role": "Events and Workshops Lead",
+      "image": "images/logo.png"
+    },
+     {
+      "name": "Aqib",
+      "role": "Gear and Equipment Lead",
+      "image": "images/logo.png"
+    },
+     {
+      "name": "Hamza",
+      "role": "Media and PR",
+      "image": "images/logo.png"
+    },
+     {
+      "name": "HAZIQ",
+      "role": "Expeditions Lead",
+      "image": "images/logo.png"
+    },
+     {
       "name": "Executive Member",
       "role": "Logistics Lead",
       "image": "images/logo.png"

@@ -57,7 +57,7 @@
         
         #output { 
             width: 100%; 
-            height: 300px; 
+            height: 400px; 
             background: #1e1e1e; 
             color: #9cdcfe; 
             font-family: 'Consolas', monospace; 
@@ -66,6 +66,7 @@
             border: none;
             font-size: 0.85rem;
             margin-top: 10px;
+            white-space: pre;
         }
         .copy-hint {
             background: var(--gold);
@@ -92,10 +93,18 @@
             <option value="advisory">Advisory Board</option>
             <option value="executives">Executive Body</option>
         </select>
-        <label>Full Name</label>
-        <input id="name" placeholder="e.g. Aimal Khan">
-        <label>Role / Designation</label>
-        <input id="role" placeholder="e.g. Club Captain">
+        <div style="display: flex; gap: 15px;">
+            <div style="flex: 1;">
+                <label>Full Name</label>
+                <input id="name" placeholder="e.g. Aimal Khan">
+            </div>
+            <div style="flex: 1;">
+                <label>Role / Designation</label>
+                <input id="role" placeholder="e.g. Club Captain">
+            </div>
+        </div>
+        <label>Quote (For Leaders/Advisory Only)</label>
+        <input id="quote" placeholder="e.g. I am an explorer" value="I am an explorer">
         <label>Image Path</label>
         <input id="image" placeholder="images/members/aimal.jpg">
         <button onclick="addMember()">Add Member</button>
@@ -103,14 +112,14 @@
 
     <div class="box" style="border-left-color: var(--gold);">
         <h2>Add Recent Tour/Expedition</h2>
-        <label>Tour Title</label>
-        <input id="tourTitle" placeholder="e.g. Kumrat Valley Expedition">
+        <label>Tour Title / Locations</label>
+        <input id="tourTitle" placeholder="e.g. Malam Jabba Ski Resort">
         <label>Date</label>
-        <input id="tourDate" placeholder="e.g. Oct 2025">
-        <label>Short Description</label>
-        <textarea id="tourDesc" class="input-field" placeholder="Brief summary of the trip..."></textarea>
+        <input id="tourDate" placeholder="e.g. Sept 2025">
+        <label>Status (e.g. recent or Memories)</label>
+        <input id="tourStatus" placeholder="recent">
         <label>Cover Image Path</label>
-        <input id="tourImg" placeholder="images/tours/kumrat.jpg">
+        <input id="tourImg" placeholder="images/a4.jpg">
         <button class="tour-btn" onclick="addTour()">Add Tour to List</button>
     </div>
 
@@ -141,19 +150,20 @@ let data = {
     gallery: []
 };
 
-// Auto-load existing data
+// Auto-load existing data from your actual data.json
 fetch("data.json")
     .then(res => res.json())
     .then(d => { 
         data = d; 
         updateOutput(); 
     })
-    .catch(() => console.log("Creating fresh data structure"));
+    .catch(() => console.log("Starting with new data structure"));
 
 function addMember() {
     const type = document.getElementById("type").value;
     const name = document.getElementById("name").value;
     const role = document.getElementById("role").value;
+    const quote = document.getElementById("quote").value;
     const image = document.getElementById("image").value;
 
     if(!name || !role) return alert("Fill Name and Role");
@@ -161,7 +171,8 @@ function addMember() {
     data[type].push({
         name: name,
         role: role,
-        image: image || "images/logo.png"
+        image: image || "images/logo.png",
+        quote: quote || "I am an explorer"
     });
 
     clearInputs(['name', 'role', 'image']);
@@ -171,19 +182,19 @@ function addMember() {
 function addTour() {
     const title = document.getElementById("tourTitle").value;
     const date = document.getElementById("tourDate").value;
-    const desc = document.getElementById("tourDesc").value;
+    const status = document.getElementById("tourStatus").value;
     const img = document.getElementById("tourImg").value;
 
     if(!title || !date) return alert("Fill Tour Title and Date");
 
     data.tours.push({
-        title: title,
-        date: date,
-        description: desc,
-        image: img || "images/tours/default.jpg"
+        name: title,
+        image: img || "images/a4.jpg",
+        status: status || "recent",
+        date: date
     });
 
-    clearInputs(['tourTitle', 'tourDate', 'tourDesc', 'tourImg']);
+    clearInputs(['tourTitle', 'tourDate', 'tourStatus', 'tourImg']);
     updateOutput();
 }
 
@@ -200,18 +211,20 @@ function updateOutput() {
 }
 
 function clearInputs(ids) {
-    ids.forEach(id => document.getElementById(id).value = "");
+    ids.forEach(id => {
+        if(id !== 'quote') document.getElementById(id).value = "";
+    });
 }
 
 function copyToClipboard() {
     const textarea = document.getElementById("output");
     textarea.select();
     document.execCommand("copy");
-    alert("Copied! Paste this into your data.json file.");
+    alert("Copied! Now open data.json, select all, and paste.");
 }
 
 function resetData() {
-    if(confirm("Are you sure? This clears all local entries.")) {
+    if(confirm("This will clear the list. Existing data in your data.json file will NOT be deleted unless you copy-paste this empty version over it.")) {
         data = { leaders: [], advisory: [], executives: [], tours: [], gallery: [] };
         updateOutput();
     }

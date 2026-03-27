@@ -15,112 +15,77 @@
             --gold: #f4a75a;
             --dark: #010806;
             --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --magic-glow: rgba(212, 175, 55, 0.15); 
         }
 
         html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background-color: #fff; color: #333; overflow-x: hidden; }
 
-      /* VARIABLES (Ensure these exist in your :root) */
-:root {
-    --gold: #d4af37;
-    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    --glass-bg: rgba(1, 8, 6, 0.85);
-}
-:root {
-    --gold: #fdfdfd;
-    --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    /* A soft, magical glow color */
-    --magic-glow: rgba(212, 175, 55, 0.15); 
-}
+        /* NAVBAR */
+        .navbar { 
+            transition: var(--transition); 
+            padding: 35px 0; 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
+            border-bottom: 0px none !important; 
+        }
 
-/* NAVBAR BASE: Start almost invisible */
-.navbar { 
-    transition: var(--transition); 
-    padding: 35px 0; 
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
-    border-bottom: 0px non !important; /* Invisible initially */
-}
+        .navbar.scrolled { 
+            background: rgba(1, 8, 6, 0.7) !important; 
+            backdrop-filter: blur(25px) saturate(200%) brightness(110%);
+            -webkit-backdrop-filter: blur(25px) saturate(200%) brightness(110%);
+            padding: 15px 0; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 20px var(--magic-glow);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
 
-/* SCROLLED STATE: The Magic Effect */
-.navbar.scrolled { 
-    background: rgba(1, 8, 6, 0.7) !important; 
-    /* This makes colors behind it pop like a dream */
-    backdrop-filter: blur(25px) saturate(200%) brightness(110%);
-    -webkit-backdrop-filter: blur(25px) saturate(200%) brightness(110%);
-    
-    padding: 15px 0; 
-    box-shadow: 
-        0 10px 40px rgba(0,0,0,0.6),
-        0 0 20px var(--magic-glow); /* Soft outer radiance */
-    
-    /* A very thin, high-contrast top-border to catch the 'light' */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+        .nav-link { 
+            font-weight: 600; 
+            color: rgba(255, 255, 255, 0.8) !important; 
+            margin: 0 18px; 
+            transition: var(--transition); 
+            font-size: 0.75rem; 
+            letter-spacing: 2.5px;
+            text-transform: uppercase; 
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            position: relative;
+        }
 
-/* NAV LINKS: Glow on Hover */
-.nav-link { 
-    font-weight: 600; 
-    color: rgba(255, 255, 255, 0.8) !important; 
-    margin: 0 18px; 
-    transition: var(--transition); 
-    font-size: 0.75rem; 
-    letter-spacing: 2.5px;
-    text-transform: uppercase; 
-    text-shadow: 0 0 10px rgba(0,0,0,0.5); /* Helps visibility on bright photos */
-}
+        .nav-link:hover { 
+            color: #ed9a15 !important; 
+            text-shadow: 0 0 15px var(--gold); 
+            letter-spacing: 3.5px; 
+        }
 
-.nav-link:hover { 
-    color: #fff !important; 
-    text-shadow: 0 0 15px var(--gold); /* The 'Magical' text glow */
-    letter-spacing: 3.5px; /* Subtle expansion effect */
-}
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), #e6bc02, var(--gold), transparent);
+            transform: translateX(-50%);
+            transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s;
+            opacity: 0;
+            filter: drop-shadow(0 0 8px var(--gold));
+        }
 
-/* ICON GLOW */
-.nav-icon { 
-    color: white; 
-    margin-left: 20px; 
-    font-size: 1.2rem; 
-    opacity: 0.6; 
-    transition: var(--transition); 
-    filter: drop-shadow(0 0 0px var(--gold));
-}
+        .nav-link:hover::after { width: 100%; opacity: 1; }
 
-.nav-icon:hover { 
-    opacity: 1; 
-    transform: scale(1.2) rotate(5deg);
-    filter: drop-shadow(0 0 12px var(--gold)); /* Glowing icon */
-}   
-/* The Eye-Capturing Underline */
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%; /* Start from center */
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), #fff, var(--gold), transparent);
-    transform: translateX(-50%);
-    transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s;
-    opacity: 0;
-    filter: drop-shadow(0 0 8px var(--gold)); /* The "Magical" glow */
-}
+        .nav-icon { 
+            color: rgb(255, 255, 255); 
+            margin-left: 20px; 
+            font-size: 1.2rem; 
+            opacity: 0.6; 
+            transition: var(--transition); 
+        }
 
-/* Hover State: The line expands and glows */
-.nav-link:hover { 
-    color: #fff !important; 
-    letter-spacing: 5px;
-}
+        .nav-icon:hover { 
+            opacity: 1; 
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 12px var(--gold));
+        }
 
-.nav-link:hover::after {
-    width: 100%; /* Expands out from center */
-    opacity: 1;
-}
-
-/* Optional: Active State (The page you are currently on) */
-.nav-link.active::after {
-    width: 40%; /* Stays partially visible */
-    opacity: 0.8;
-}  
         /* HERO SLIDER */
         .hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; color: white; text-align: center; }
         .hero-bg { 
@@ -128,13 +93,26 @@
             background-size: cover; background-position: center; 
             animation: heroSlider 20s infinite alternate; z-index: -1; 
         }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, transparent, var(--dark)); }
+        /* UPDATED: Radial gradient for text readability */
+        .hero-overlay { 
+            position: absolute; 
+            top: 0; left: 0; width: 100%; height: 100%; 
+            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, var(--dark) 100%); 
+        }
         
+        /* UPDATED: Clamp for responsive sizing */
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
+        }
+
         @keyframes heroSlider {
             0% { background-image: url('images/a1.jpeg'); transform: scale(1); }
             20% { background-image: url('images/a2.jpg'); transform: scale(1.05); }
             40% { background-image: url('images/a4.jpg'); transform: scale(1); }
-             60% { background-image: url('images/a11.jpg'); transform: scale(1); }
+            60% { background-image: url('images/a11.jpg'); transform: scale(1); }
             80% { background-image: url('images/a16.jpg'); transform: scale(1.05); }
             100% { background-image: url('images/a18.jpg'); transform: scale(1); }
         }
@@ -166,11 +144,23 @@
         .bg-green-section { background: var(--forest-green); padding: 120px 0; color: white; }
         .leader-card { 
             background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 40px; padding: 50px 30px; transition: var(--transition); text-align: center; height: 100%;
+            border-radius: 40px; padding: 40px 25px; transition: var(--transition); text-align: center; height: 100%;
         }
         .leader-card:hover { background: #fff; color: var(--forest-green); transform: translateY(-15px); }
-        .cabinet-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid var(--gold); margin-bottom: 25px; transition: 0.4s; }
+        /* UPDATED: Reduced leader image size for professionalism */
+        .cabinet-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--gold); margin-bottom: 20px; transition: 0.4s; }
         .leader-card:hover .cabinet-img { border-color: var(--forest-green); transform: scale(1.05); }
+
+        /* NEW: Quote Tag Style */
+        .quote-tag {
+            display: block;
+            font-style: italic;
+            font-size: 0.85rem;
+            margin-top: 15px;
+            color: var(--gold);
+            transition: var(--transition);
+        }
+        .leader-card:hover .quote-tag { color: var(--forest-green); opacity: 0.7; }
 
         /* DIVIDERS */
         .pro-divider { width: 50%; height: 1px; background: rgba(255,255,255,0.1); margin: 80px auto; position: relative; }
@@ -197,9 +187,10 @@
         .social-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
         .social-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 15px; border-radius: 15px; text-align: center; color: white; text-decoration: none; transition: 0.4s; font-size: 1.1rem; }
         .social-box:hover { background: var(--gold); color: var(--dark); transform: translateY(-5px); }
-        .copyright-bar { margin-top: 80px; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2); }
+        /* UPDATED: Centered Copyright Bar */
+        .copyright-bar { margin-top: 80px; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2); text-align: center; }
 
-        .btn-gold { background: var(--gold); color: #000; font-weight: 800; padding: 15px 40px; border-radius: 50px; text-decoration: none; transition: 0.3s; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; }
+        .btn-gold { background: var(--gold); color: #000; font-weight: 800; padding: 15px 40px; border-radius: 50px; text-decoration: none; transition: 0.3s; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; display: inline-block; }
     </style>
 </head>
 <body>
@@ -221,7 +212,7 @@
                 <div class="d-flex align-items-center">
                     <a href="https://www.facebook.com/htc.uetp" class="nav-icon"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/htc_uetp.pk/" class="nav-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://youtube.com/@hikingandtrekkingclubuetpeshaw?si=j2MZqm-5As0JdMM2" class="nav-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="https://youtube.com/@hikingandtrekkingclubuetpeshaw" class="nav-icon"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.linkedin.com/company/htc-uet-peshawar/" class="nav-icon me-4"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://forms.gle/76TvSRvx8TaZYHmm9" class="btn-gold px-4" target="_blank">Join</a>
                 </div>
@@ -234,10 +225,9 @@
         <div class="hero-overlay"></div>
         <div style="z-index: 2;">
             <h6 class="text-uppercase fw-bold mb-3" style="letter-spacing: 12px; color: var(--gold);">Est. 1980 </h6>
-              <h6 class="text-uppercase fw-bold mb-3" style="letter-spacing: 12px; color: var(--gold);">Uet Peshawar</h6>
-            <h1 class="display-1 fw-extrabold mb-5" style="letter-spacing: -2px;">Hiking And Trekking Club</h1>
-             <h6 class="text-uppercase fw-bold mb-3" style="letter-spacing: 12px;;">Explore. Lead. Protect the Mountains.</h6>
-          
+            <h6 class="text-uppercase fw-bold mb-3" style="letter-spacing: 12px; color: var(--gold);">Uet Peshawar</h6>
+            <h1>Hiking And Trekking Club</h1>
+            <h6 class="text-uppercase fw-bold mb-3" style="letter-spacing: 12px;">Explore. Lead. Protect the Mountains.</h6>
             <a href="#legacy" class="btn-gold">Discover Our Legacy</a>
         </div>
     </section>
@@ -246,14 +236,17 @@
         <div class="container">
             <div class="row g-5 align-items-center mb-5">
                 <div class="col-lg-6 order-2 order-lg-1">
-                  <h2 class="display-4 fw-black text-uppercase tracking-tight" style="color: #2D4F1E; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
-    A Legacy Forged in the  <span style="color: #D4AF37; display: block; font-style: italic; font-weight: 300;">High Peaks</span>
+                  <h2 class="display-4 fw-bold text-uppercase" style="color: #1b3318; letter-spacing: -1.5px; line-height: 1.2;">
+    A Legacy Forged in the 
+    <span style="color: #D4AF37; font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 1px; font-size: 0.9em; margin-left: 10px; white-space: nowrap;">
+        High Peaks
+    </span>
 </h2>
-<p class="lead text-muted mt-4 pe-lg-5">
-    Since 1980 the Hiking & Trekking Club at UET Peshawar has been a brotherhood of explorers. 
-    We lead generations of engineers away from the drawing boards and into the heart of 
-    Pakistan’s wilderness—building the resilience and leadership that define a UETian for life.
-</p>
+                    <p class="lead text-muted mt-4 pe-lg-5">
+                        Since 1980 the Hiking & Trekking Club at UET Peshawar has been a brotherhood of explorers. 
+                        We lead generations of engineers away from the drawing boards and into the heart of 
+                        Pakistan’s wilderness—building the resilience and leadership that define a UETian for life.
+                    </p>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2">
                     <div class="legacy-image-wrapper">
@@ -261,6 +254,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="row g-4 mt-5">
                 <div class="col-md-3 col-6"><div class="stat-box"><h2>46</h2><p>Years Strong</p></div></div>
                 <div class="col-md-3 col-6"><div class="stat-box"><h2>50+</h2><p>Tours Hosted</p></div></div>
@@ -272,8 +266,8 @@
 
     <section id="cabinet" class="bg-green-section">
         <div class="container text-center">
-            <h2 class="display-5 fw-bold mb-5">THE CABINET</h2>
-             <h5 class="text-uppercase small fw-bold mb-5" style="letter-spacing: 5px; color: var(--gold);">Leadership</h5>
+            <h2 class="display-5 fw-bold mb-4">THE CABINET</h2>
+            <h5 class="text-uppercase small fw-bold mb-4" style="letter-spacing: 5px; color: var(--gold);">Leadership</h5>
             <div id="leaders-container" class="row g-4 justify-content-center"></div>
             <div class="pro-divider"></div>
             <h5 class="text-uppercase small fw-bold mb-5" style="letter-spacing: 5px; color: var(--gold);">Support Team</h5>
@@ -319,7 +313,6 @@
                         <li><a href="#cabinet">The Cabinet</a></li>
                         <li><a href="#tours">Expeditions</a></li>
                         <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="https://forms.gle/76TvSRvx8TaZYHmm9" target="_blank">Join Portal</a></li>
                     </ul>
                 </div>
 
@@ -328,7 +321,6 @@
                     <div class="text-white-50" style="font-size: 0.9rem;">
                         <p class="mb-3"><i class="fas fa-map-marker-alt text-gold me-2"></i> DCSE, UET Peshawar, Jamrud Road</p>
                         <p class="mb-3"><i class="fas fa-envelope text-gold me-2"></i> htc@uetpeshawar.edu.pk</p>
-                        <p class="mb-4"><i class="fas fa-clock text-gold me-2"></i> Mon - Fri: 08:00 AM - 04:00 PM</p>
                     </div>
                 </div>
 
@@ -337,7 +329,7 @@
                     <div class="social-grid">
                         <a href="https://www.facebook.com/htc.uetp" class="social-box"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/htc_uetp.pk/" class="social-box"><i class="fab fa-instagram"></i></a>
-                        <a href="https://youtube.com/@hikingandtrekkingclubuetpeshaw?si=j2MZqm-5As0JdMM2" class="social-box"><i class="fab fa-youtube"></i></a>
+                        <a href="https://youtube.com/@hikingandtrekkingclubuetpeshaw" class="social-box"><i class="fab fa-youtube"></i></a>
                         <a href="https://www.linkedin.com/company/htc-uet-peshawar/" class="social-box"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -346,49 +338,94 @@
 
         <div class="copyright-bar">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6 text-center text-md-start">
-                        <span class="small text-white-50">Hiking And Trekking Club | UET Peshawar</span>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <span class="small opacity-25">&copy; 2026 All Rights Reserved.</span>
-                    </div>
-                </div>
+                <span class="small text-white-50 d-block mb-1">Hiking And Trekking Club | UET Peshawar</span>
+                <span class="small opacity-25 d-block">&copy; 2026 All Rights Reserved.</span>
             </div>
         </div>
     </footer>
-    <script>
-        window.addEventListener("scroll", () => {
-            document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 80);
-        });
 
-        fetch("data.json")
-            .then(res => res.json())
-            .then(data => {
-                const lCont = document.getElementById("leaders-container");
-                data.leaders.forEach(p => {
-                    lCont.innerHTML += `<div class="col-md-5"><div class="leader-card"><img src="${p.image}" class="cabinet-img" onerror="this.src='images/logo.png'"><br><span class="badge bg-warning text-dark px-3 py-2 rounded-pill mb-3" style="font-size:0.6rem;">${p.role}</span><h4 class="fw-bold">${p.name}</h4></div></div>`;
-                });
-                const aCont = document.getElementById("advisory-container");
-                data.advisory.forEach(p => {
-                    aCont.innerHTML += `<div class="col-6 col-md-3"><div class="leader-card p-4"><img src="${p.image}" class="cabinet-img" style="width:80px;height:80px;"><h6 class="fw-bold mb-1">${p.name}</h6><p class="small text-gold mb-0">${p.role}</p></div></div>`;
-                });
-                const eCont = document.getElementById("executive-container");
-                data.executives.forEach(p => {
-                    eCont.innerHTML += `<div class="col-6 col-md-2"><div class="leader-card p-3"><img src="${p.image}" class="cabinet-img" style="width:60px;height:60px;"><h6 class="fw-bold mb-0" style="font-size:0.7rem;">${p.name}</h6><p class="small opacity-50 mb-0" style="font-size:0.6rem;">${p.role}</p></div></div>`;
-                });
-                const tCont = document.getElementById("tours-container");
-                data.tours.forEach(t => {
-                    tCont.innerHTML += `<div class="col-md-4"><div style="height:380px; border-radius:35px; overflow:hidden; position:relative;"><img src="${t.image}" style="width:100%;height:100%;object-fit:cover;"><div style="position:absolute;bottom:0;width:100%;padding:30px;background:linear-gradient(transparent,rgba(0,0,0,0.9));color:white;text-align:left"><h5 class="fw-bold mb-0">${t.name}</h5><small class="text-gold">${t.date}</small></div></div></div>`;
-                });
-                const g1 = document.getElementById("gallery-l1");
-                const g2 = document.getElementById("gallery-l2");
-                data.gallery.forEach((img, i) => {
-                    const tag = `<img src="${img}" loading="lazy">`;
-                    if(i % 2 === 0) g1.innerHTML += tag; else g2.innerHTML += tag;
-                });
-                g1.innerHTML += g1.innerHTML; g2.innerHTML += g2.innerHTML;
+   <script>
+    window.addEventListener("scroll", () => {
+        document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 80);
+    });
+
+    fetch("data.json")
+        .then(res => res.json())
+        .then(data => {
+            // 1. LEADERS (With Quotes)
+            const lCont = document.getElementById("leaders-container");
+            data.leaders.forEach(p => {
+    lCont.innerHTML += `
+        <div class="col-md-4">
+            <div class="leader-card">
+                <img src="${p.image}" class="cabinet-img" onerror="this.src='images/logo.png'">
+                <br>
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill mb-3" style="font-size:0.6rem; letter-spacing:1px;">
+                    ${p.role}
+                </span>
+                
+                <h4 class="fw-bold mb-1">${p.name}</h4>
+                
+                <p class="small text-uppercase mb-2 opacity-75" style="font-size: 0.65rem; color: var(--gold); font-weight: 600;">
+                    ${p.title || ''}
+                </p>
+
+                <span class="quote-tag">"${p.quote}"</span>
+            </div>
+        </div>`;
+});
+
+            // 2. ADVISORY (With Quotes)
+            const aCont = document.getElementById("advisory-container");
+            data.advisory.forEach(p => {
+                aCont.innerHTML += `
+                    <div class="col-6 col-md-3">
+                        <div class="leader-card p-4">
+                            <img src="${p.image}" class="cabinet-img" style="width:80px;height:80px;">
+                            <h6 class="fw-bold mb-1">${p.name}</h6>
+                            <p class="small text-gold mb-0">${p.role}</p>
+                            <span class="quote-tag">"${p.quote}"</span>
+                        </div>
+                    </div>`;
             });
-    </script>
+
+            // 3. EXECUTIVES (No Quotes - Keeping it clean)
+            const eCont = document.getElementById("executive-container");
+            data.executives.forEach(p => {
+                eCont.innerHTML += `
+                    <div class="col-6 col-md-2">
+                        <div class="leader-card p-3">
+                            <img src="${p.image}" class="cabinet-img" style="width:60px;height:60px;">
+                            <h6 class="fw-bold mb-0" style="font-size:0.7rem;">${p.name}</h6>
+                            <p class="small opacity-50 mb-0" style="font-size:0.6rem;">${p.role}</p>
+                        </div>
+                    </div>`;
+            });
+
+            // 4. TOURS
+            const tCont = document.getElementById("tours-container");
+            data.tours.forEach(t => {
+                tCont.innerHTML += `
+                    <div class="col-md-4">
+                        <div style="height:380px; border-radius:35px; overflow:hidden; position:relative;">
+                            <img src="${t.image}" style="width:100%;height:100%;object-fit:cover;">
+                            <div style="position:absolute;bottom:0;width:100%;padding:30px;background:linear-gradient(transparent,rgba(0,0,0,0.9));color:white;text-align:left">
+                                <h5 class="fw-bold mb-0">${t.name}</h5>
+                                <small class="text-gold">${t.date}</small>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+
+            // 5. GALLERY
+            const g1 = document.getElementById("gallery-l1");
+            const g2 = document.getElementById("gallery-l2");
+            data.gallery.forEach((img, i) => {
+                const tag = `<img src="${img}" loading="lazy">`;
+                if(i % 2 === 0) g1.innerHTML += tag; else g2.innerHTML += tag;
+            });
+            g1.innerHTML += g1.innerHTML; g2.innerHTML += g2.innerHTML;
+        });
+</script>
 </body>
 </html>

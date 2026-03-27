@@ -1,83 +1,93 @@
 {
   "leaders": [
-    {
-      "name": "Dr. Laiq Hasan",
-      "role": "Chief Patron",
-      "image": "images/laiq.png",
-      "badge": "badge-gold"
-    },
+   {
+  "name": "Dr. Laiq Hasan",
+  "role": "Chief Patron",
+   "title": "Chairman DCSE",
+  "image": "images/laiq.png",
+  "badge": "badge-gold",
+  "quote": "Leading the next generation of engineers to the peaks of excellence."
+},
     {
       "name": "Aimal Khan",
       "role": "Club Captain",
       "image": "images/aimal.png",
-      "badge": "badge-green"
+      "badge": "badge-green",
+      "quote": "I am an Explorer"
     },
     {
       "name": "TBD",
       "role": "Vice Club Captain",
       "image": "images/a22.jpg",
-      "badge": "badge-green"
+      "badge": "badge-green",
+      "quote": "I am an Dreamer"
     }
   ],
   "advisory": [
     {
       "name": "Aslam Javed",
       "role": "Senior Club Coordinator",
-      "image": "images/logo.png"
+      "image": "images/logo.png",
+      "quote": "I am an explorer"
     },
     {
       "name": "TBD",
       "role": "Senior Advisor",
-      "image": "images/logo.png"
+      "image": "images/logo.png",
+      "quote": "I am an explorer"
     }
   ],
   "executives": [
     {
       "name": "TBD",
-      "role": "Sectetary",
-      "image": "images/logo.png"
+      "role": "Secretary",
+      "image": "images/logo.png",
+      "quote": "I am an explorer"
     },
-     {
+    {
       "name": "Wadan Ijaz",
       "role": "Events and Workshops Lead",
-      "image": "images/logo.png"
+      "image": "images/logo.png",
+      "quote": "I am an explorer"
     },
-     {
+    {
       "name": "Aqib",
       "role": "Gear and Equipment Lead",
-      "image": "images/logo.png"
+      "image": "images/logo.png",
+      "quote": "I am an explorer"
     },
-     {
+    {
       "name": "TBD",
       "role": "Media and PR",
-      "image": "images/logo.png"
+      "image": "images/logo.png",
+      "quote": "I am an explorer"
     },
-     {
+    {
       "name": "HAZIQ",
       "role": "Expeditions Lead",
-      "image": "images/haziq.jpeg"
+      "image": "images/haziq.jpeg",
+      "quote": "I am an explorer"
     },
-     {
+    {
       "name": "TBD",
-      "role": "Finance  Lead",
-      "image": "images/logo.png"
+      "role": "Finance Lead",
+      "image": "images/logo.png",
+      "quote": "I am an explorer"
     }
   ],
   "tours": [
     {
-      "name": "Galai medaan , Chor valley , Manoor valley , Naran valley",
+      "name": "Galai medaan, Chor valley, Manoor valley, Naran valley",
       "image": "images/a4.jpg",
       "status": "recent",
       "date": "September 2025"
     },
-       {
+    {
       "name": "Malam Jabba Ski Resort",
       "image": "images/a13.png",
       "status": "Memories",
       "date": "April 2019"
     },
-    
-    
     {
       "name": "DUDIPATSAR Lake",
       "image": "images/a12.jpg",
@@ -110,7 +120,7 @@
     "images/a10.jpg",
     "images/a11.jpg",
     "images/a12.jpg",
-    "images/a13.png", 
+    "images/a13.png",
     "images/a14.jpg",
     "images/a15.jpg",
     "images/a16.jpg",

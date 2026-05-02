@@ -9,16 +9,16 @@
   "quote": "Leading the next generation of engineers to the peaks of excellence."
 },
     {
-      "name": "Aimal Khannnnnn",
+      "name": "Aimal Khan",
       "role": "Club Captain",
       "image": "images/aimal.png",
       "badge": "badge-green",
       "quote": "I am an Explorer"
     },
     {
-      "name": "TBD",
+      "name": "Arshbala khan ",
       "role": "Vice Club Captain",
-      "image": "images/a22.jpg",
+      "image": "images/q1.jpg",
       "badge": "badge-green",
       "quote": "I am an Dreamer"
     }
@@ -31,6 +31,24 @@
       "quote": "I am an explorer"
     },
     {
+      "name": "Aslam Javed",
+      "role": "Senior Club Coordinator",
+      "image": "images/logo.png",
+      "quote": "I am an explorer"
+    },
+    {
+      "name": "TBD",
+      "role": "Senior Advisor",
+      "image": "images/logo.png",
+      "quote": "I am an explorer"
+    },
+    {
+      "name": "TBD",
+      "role": "Senior Advisor",
+      "image": "images/logo.png",
+      "quote": "I am an explorer"
+    },
+    {
       "name": "TBD",
       "role": "Senior Advisor",
       "image": "images/logo.png",
@@ -39,7 +57,7 @@
   ],
   "executives": [
     {
-      "name": "TBD",
+      "name": "Muhammad Ahsan",
       "role": "Secretary",
       "image": "images/logo.png",
       "quote": "I am an explorer"
@@ -57,7 +75,7 @@
       "quote": "I am an explorer"
     },
     {
-      "name": "TBD",
+      "name": "Ateeq harjai",
       "role": "Media and PR",
       "image": "images/logo.png",
       "quote": "I am an explorer"
@@ -124,9 +142,11 @@
     "images/a14.jpg",
     "images/a15.jpg",
     "images/a16.jpg",
-    "images/a17.jpg",
     "images/a18.jpg",
     "images/2017.jpg",
-    "images/a22.jpg"
+    "images/a22.jpg",
+    "images/c1.jpeg",
+    "images/c2.jpeg",
+    "images/c3.jpeg"
   ]
 }

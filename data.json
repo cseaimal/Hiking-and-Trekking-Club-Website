@@ -23,73 +23,68 @@
       "quote": "I am an Dreamer"
     }
   ],
-  "advisory": [
-    {
-      "name": "Aslam Javed",
-      "role": "Senior Club Coordinator",
-      "image": "images/logo.png",
-      "quote": "I am an explorer"
-    },
-    {
-      "name": "Aslam Javed",
-      "role": "Senior Club Coordinator",
-      "image": "images/logo.png",
-      "quote": "I am an explorer"
-    },
-    {
-      "name": "TBD",
-      "role": "Senior Advisor",
-      "image": "images/logo.png",
-      "quote": "I am an explorer"
-    },
-    {
-      "name": "TBD",
-      "role": "Senior Advisor",
-      "image": "images/logo.png",
-      "quote": "I am an explorer"
-    },
-    {
-      "name": "TBD",
-      "role": "Senior Advisor",
-      "image": "images/logo.png",
-      "quote": "I am an explorer"
-    }
-  ],
   "executives": [
     {
-      "name": "Muhammad Ahsan",
-      "role": "Secretary",
-      "image": "images/logo.png",
+      "name": "Ayoob Rasheed",
+      "role": "Coordinator",
+      "image": "images/ayoobs_image.jpeg",
       "quote": "I am an explorer"
     },
     {
       "name": "Wadan Ijaz",
-      "role": "Events and Workshops Lead",
-      "image": "images/logo.png",
+      "role": "Management Lead",
+      "image": "images/wadan_img.jpg",
       "quote": "I am an explorer"
     },
     {
-      "name": "Aqib",
-      "role": "Gear and Equipment Lead",
-      "image": "images/logo.png",
-      "quote": "I am an explorer"
-    },
-    {
-      "name": "Ateeq harjai",
-      "role": "Media and PR",
-      "image": "images/logo.png",
-      "quote": "I am an explorer"
-    },
-    {
-      "name": "HAZIQ",
+      "name": "Mian Muhammad Haziq",
       "role": "Expeditions Lead",
       "image": "images/haziq.jpeg",
       "quote": "I am an explorer"
     },
     {
-      "name": "TBD",
-      "role": "Finance Lead",
+      "name": "Muhammad Shahzaib Rahat",
+      "role": "Gear & Equipment Lead",
+      "image": "images/shahzeb_image.jpg",
+      "quote": "I am an explorer"
+    },
+    {
+      "name": "Osman Bin Anwar",
+      "role": "Media & Communications Lead",
+      "image": "images/usman_img.jpeg",
+      "quote": "I am an explorer"
+    },
+    
+    {
+      "name": "Muhammad Ahsan",
+      "role": "Management Co-Lead",
+      "image": "images/ahsan_img.jpg",
+      "quote": "I am an explorer"
+    }
+  ],
+   "advisory": [
+    {
+      "name": "Aslam Javed",
+      "role": "Senior Club Advisor",
       "image": "images/logo.png",
+      "quote": "I am an explorer"
+    },
+    {
+      "name": "Muhammad Ibad Khan",
+      "role": "Advisor",
+      "image": "images/ibad_img.jpg",
+      "quote": "I am an explorer"
+    },
+    {
+      "name": "Muhammad Maaz",
+      "role": "Advisor",
+      "image": "images/maaz_img.jpg",
+      "quote": "I am an explorer"
+    },
+    {
+      "name": "Muhammad Talha Khan",
+      "role": "Advisor",
+      "image": "images/talha_img.jpg",
       "quote": "I am an explorer"
     }
   ],
